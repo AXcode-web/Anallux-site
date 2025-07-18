@@ -1,0 +1,508 @@
+/* impedir scroll horizontal */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Menu Navegação */
+
+.menu-navegacao {
+  background-color: #0d1021;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.menu-navegacao ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-navegacao li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.menu-navegacao li a:hover {
+  color: #cc66ff;
+  text-shadow: 0 0 5px #cc66ff;
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+/* Fundo com luzes */
+
+.fundo-gradiente {
+  position: fixed;              /* sempre fixo */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at bottom left, rgba(255, 0, 255, 0.3), transparent 40%),
+              radial-gradient(circle at top right, rgba(0, 128, 255, 0.3), transparent 40%);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);     /* evita flickering no mobile */
+  backface-visibility: hidden; /* ajuda a prevenir bugs no iOS */
+}
+
+/* Cabeçalho(header) */
+
+header {
+  text-align: center;
+  padding: 60px 20px 20px;
+  position: relative;
+  z-index: 2;
+}
+  .logo-panda {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: bold;
+}
+
+.subtitulo {
+  font-size: 24px;
+  color: #cc66ff;
+  margin-top: 1px;
+  
+}
+
+/* Linhas Neon */
+
+.linha-neon {
+  height: 6px;
+  width: 80%;
+  margin: 30px auto;
+  background: linear-gradient(90deg, #ff00ff, #cc66ff);
+  box-shadow: 0 0 15px #ff00ff, 0 0 30px #cc66ff;
+  border-radius: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+/* CARROSEL */
+
+.carrossel-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.carrossel {
+  position: relative;
+  width: 200px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid #cc66ff;
+  box-shadow: 0 0 15px rgba(204, 102, 255, 0.3);
+  background-color: #1b102d;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  display: block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Responsividade */
+
+/* DESKTOP: usa position: fixed */
+@media (min-width: 768px) {
+  .fundo-gradiente {
+    position: fixed;
+  }
+}
+
+/* Menu Navegação em telas pequenas */
+
+@media (max-width: 768px) {
+  .menu-navegacao {
+    display:none; /* Oculta o menu em telas pequenas */
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Seção PROJETOS / SERVIÇOS */
+
+#meus-projetos {
+  padding: 10px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.subtitulo-projetos {
+  font-size: 22px;
+  color: #cc66ff;
+  margin-bottom: 60px;
+  font-style: italic;
+}
+
+.cards-projetos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  max-width: 600px; /* limite que força 2 cards por linha */
+  margin: 0 auto;   /* centraliza o container */
+}
+
+.card-projeto {
+  background-color: #1b102d;
+  border: 2px solid #cc66ff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  width: 280px;
+  text-align: left;
+  color: white;
+  box-shadow: 0 0 20px rgba(204, 102, 255, 0.3);
+  transition: transform 0.3s;
+}
+
+.card-projeto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(204, 102, 255, 0.5);
+}
+
+.card-projeto h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #ff00ff, #cc66ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-projeto p {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+
+/* Seção Sobre */
+
+#sobre-mim {
+  padding: 10px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+}
+
+.subtitulo-sobre {
+  font-size: 24px;
+  color: #cc66ff;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.conteudo-sobre {
+  font-size: 25.1px;
+  line-height: 1.7;
+  color: #ddd;
+  max-width: 800px;
+  margin: auto;
+  text-align: justify;
+}
+
+.linha-meio {
+  height: 3px;
+  width: 60%;
+  margin: 60px auto 0;
+  border: none;
+  background: linear-gradient(90deg, #c084fc, #818cf8, #c084fc);
+  box-shadow: 0 0 20px #c084fc;
+}
+
+/* Seção Planos */
+
+#planos {
+  padding: 10px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#planos h2 {
+  font-size: 34px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.subtitulo-planos {
+  font-size: 20px;
+  color: #cc66ff;
+  margin-bottom: 50px;
+}
+
+.cards-planos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.plano {
+  background: #1b102d;
+  border: 2px solid #cc66ff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 300px;
+  color: white;
+  box-shadow: 0 0 20px rgba(204, 102, 255, 0.3);
+  transition: transform 0.3s;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+}
+
+.plano:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(204, 102, 255, 0.6);
+}
+
+.plano h3 {
+  background: linear-gradient(to right, #ff00ff, #cc66ff);
+  -webkit-background-clip: text;
+  background-clip: text; /* Compatibilidade padrão */
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.plano ul {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.plano ul li {
+  margin-bottom: 10px;
+  list-style: disc;
+}
+
+.preco {
+  background: #0e001f;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #cc66ff;
+  font-size: 14px;
+}
+
+/* Botão whatsapp */
+.botao-whatsapp {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #9f00ff, #cc66ff);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(204, 102, 255, 0.4);
+}
+
+.botao-whatsapp:hover {
+  background: linear-gradient(to right, #cc66ff, #9f00ff);
+  box-shadow: 0 0 20px rgba(204, 102, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Seção Contrato/Contato */
+
+.secao-contrato {
+  color: #fff;
+  text-align: center;
+  width: 100%;         /* garante alinhamento com outras seções */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.conteudo-contrato {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+.frase-destaque {
+  font-size: 1.2rem;
+  color: #ff66c4;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.linha-neon {
+  height: 3px;
+  width: 60%;
+  margin: 2rem auto;
+  border: none;
+  background: linear-gradient(90deg, #c084fc, #818cf8, #c084fc);
+  box-shadow: 0 0 20px #c084fc;
+}
+
+.texto-contrato {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.botao-contrato {
+  display: inline-block;
+  margin-top: 5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #818cf8;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 0 12px #818cf8;
+  transition: background 0.3s ease;
+}
+
+.botao-contrato:hover {
+  background-color: #a78bfa;
+}
+
+/* Rodapé */
+
+#rodape {
+  padding: 10px 20px;
+  text-align: center;
+  color: #aaa;
+  position: relative;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #cc66ff;
+  font-size: 28px;
+  margin: 0 15px;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #cc66ff, 0 0 20px #cc66ff;
+}
+
+/* PARAGRAFOS */
+
+p {
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+}
+
+.paragrafo-citacao {
+  font-style: italic;
+  color: #ccc;
+  margin: 10px;
+  margin-top: -20px;
+  transform: translateX(100px);
+}
+
+a {
+  text-decoration: none;
+}
